@@ -15,6 +15,8 @@ Array.prototype.shuffle = function() {
 
 angular.module('decoreba',[]).controller('Controller', function($scope) {
 	//$scope.multiplier = 2;
+	$scope.scoreIn = 0;
+	$scope.scoreOut = 0;
 	$scope.ask = function () {
 		var multiplicands = [];
 		$scope.anwsers = [];
@@ -34,10 +36,13 @@ angular.module('decoreba',[]).controller('Controller', function($scope) {
 		$scope.anwser = function(anws) {
 			if (anws == (themultiplicand * $scope.multiplier)) {
 				console.log(anws + '=' + themultiplicand * $scope.multiplier);
+				$scope.scoreIn++;
 				$scope.ask();
 			} else {
 				console.log('ERRO: ' + anws + '=' + themultiplicand * $scope.multiplier);
+				$scope.scoreOut++;
 			}
+			$scope.score = $scope.scoreIn + '/' + ($scope.scoreIn + $scope.scoreOut);
 		};
 	};
 });
