@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>tabuada</title>
+		<link href="style.css" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.js"></script>
+		<script src="decoreba.js"></script>
+	</head>
+	<body ng-app="decoreba">
+		<div ng-controller="Controller">
+			<select ng-model="multiplier" ng-change="ask()" convert-to-number>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+			</select>
+			<h2 ng-show="multiplier">{{question}}</h2>
+			<table ng-show="multiplier">
+				<tr>
+					<td ng-repeat="anws in anwsers">
+						<button ng-click="anwser(anws)">{{anws}}</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

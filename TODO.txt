@@ -1,0 +1,2 @@
+- sinalizar erros
+- calcular e exibir taxa de acertos (acertos por segundo)
