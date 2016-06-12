@@ -1,6 +1,7 @@
 
+// Returns a random integer between min (included) and max (included)
 function randomInt(min, max) {
-	return Math.floor(Math.random() * (max - min)) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 Array.prototype.shuffle = function() {
@@ -37,10 +38,13 @@ angular.module('decoreba',[]).controller('Controller', function($scope) {
 			if (anws == (themultiplicand * $scope.multiplier)) {
 				console.log(anws + '=' + themultiplicand * $scope.multiplier);
 				$scope.scoreIn++;
+				$scope.img = undefined;
 				$scope.ask();
 			} else {
 				console.log('ERRO: ' + anws + '=' + themultiplicand * $scope.multiplier);
 				$scope.scoreOut++;
+				$scope.img = 'imgs/' + randomInt(1, 10) + '.jpg';
+				console.log($scope.img);
 			}
 			$scope.score = $scope.scoreIn + '/' + ($scope.scoreIn + $scope.scoreOut);
 		};
