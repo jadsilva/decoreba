@@ -2,34 +2,20 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<link rel="icon" href="/favicon.ico">
 		<title>jogo da tabuada</title>
 		<link href="style.css" rel="stylesheet" />
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.js"></script>
 		<script src="decoreba.js"></script>
 	</head>
-	<body ng-app="decoreba">
-		<div ng-controller="Controller">
-			<img ng-show="img" ng-src="{{img}}">
-			<p>Tabuada de <select ng-model="multiplier" ng-change="ask()" convert-to-number>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
+	<body>
+		<div id="app">
+			<p>Tabuada de <select id="multiplier">
+				<option value="" selected></option>
 			</select></p>
-			<h2 ng-show="multiplier">{{question}}</h2>
-			<table ng-show="multiplier">
-				<tr>
-					<td ng-repeat="anws in anwsers">
-						<button ng-click="anwser(anws)">{{anws}}</button>
-					</td>
-				</tr>
-			</table>
-			<p ng-show="score">Acertos: {{score}}</p>
+			<h2 id="question"></h2>
+			<div id="anwsers"></div>
+			<p>Acertos: <span id="score">0/0</span></p>
 		</div>
 	</body>
 </html>
